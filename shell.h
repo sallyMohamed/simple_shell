@@ -13,7 +13,7 @@
 #include <errno.h>
 
 
-int _putchar(char c);
+/*int _putchar(char c);*/
 
 typedef struct liststring
 {
