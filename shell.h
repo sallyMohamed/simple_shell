@@ -46,7 +46,7 @@ typedef struct passinform
 	int histcount;
 } i_t;
 
-
+/* _memory.c */
 void free_memory(void **ptr);
 
 /* _atoiandexit.c */
