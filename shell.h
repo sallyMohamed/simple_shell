@@ -11,5 +11,6 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+void free_memory(void **ptr);
 
 #endif
