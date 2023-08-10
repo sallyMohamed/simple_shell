@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * free_memory - frees allocated memory and NULLs the address.
  * @ptr: pointer to free
