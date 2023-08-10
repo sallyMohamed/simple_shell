@@ -12,6 +12,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
+
+int _putchar(char c);
+
 typedef struct passinform
 {
 	char *argument;
