@@ -15,6 +15,14 @@
 
 int _putchar(char c);
 
+typedef struct liststring
+{
+	int number;
+	char *string;
+	struct liststring *next;
+} list_str;
+
+
 typedef struct passinform
 {
 	char *argument;
@@ -25,15 +33,15 @@ typedef struct passinform
 	int error_num;
 	int line_flag;
 	char *filename;
-	/*list_t *env;
-	list_t *history;
-	list_t *alias;*/
+	list_str *environ;
+	list_str *history;
+	list_str *aliasnode;
 	char **environ;
-	int env_changed;
+	int environ_changed;
 	int status;
 
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	char **cmd_buffer; /* memory mangement */
+	int cmd_buffer_type; /* CMD_type_totest ||, &&, ; */
 	int readfiledis;
 	int histcount;
 } i_t;
