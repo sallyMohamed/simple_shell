@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "shell.h"  /* Assuming shell.h is in the same directory as main.c */
-
 /**
  * main - Entry point
  * Return: 1 is fail, 0 is success.
