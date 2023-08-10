@@ -12,19 +12,19 @@
 #include <fcntl.h>
 #include <errno.h>
 
-typedef struct passinfo
+typedef struct passinform
 {
-	char *arg;
-	char **argv;
+	char *argument;
+	char **argvactor;
 	char *path;
-	int argc;
-	unsigned int line_count;
-	int err_num;
-	int linecount_flag;
-	char *fname;
-	list_t *env;
+	int argcounter;
+	unsigned int line_counter;
+	int error_num;
+	int line_flag;
+	char *filename;
+	/*list_t *env;
 	list_t *history;
-	list_t *alias;
+	list_t *alias;*/
 	char **environ;
 	int env_changed;
 	int status;
@@ -40,9 +40,9 @@ void free_memory(void **ptr);
 
 /* _atoiandexit.c */
 int interactmode(i_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+int is_delimeter(char, char *);
+int _isalphabetic(int);
+int _atointeger(char *);
 
 
 
