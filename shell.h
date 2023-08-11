@@ -12,9 +12,6 @@
 #include <fcntl.h>
 #include <errno.h>
 
-<<<<<<< Updated upstream
-
-/*int _putchar(char c);*/
 
 typedef struct liststring
 {
@@ -34,7 +31,7 @@ typedef struct passinform
 	int error_num;
 	int line_flag;
 	char *filename;
-	list_str *environ;
+	list_str *environ2;
 	list_str *history;
 	list_str *aliasnode;
 	char **environ;
@@ -48,12 +45,11 @@ typedef struct passinform
 } i_t;
 
 /* _memory.c */
-=======
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
->>>>>>> Stashed changes
+
 void free_memory(void **ptr);
 void print_tab(char **tab);
 int is_separator(char c);
@@ -71,6 +67,11 @@ int is_delimeter(char, char *);
 int _isalphabetic(int);
 int _atointeger(char *);
 
+
+/*string_function.c*/
+char *_stringcopy(char *, char *, int);
+char *_stringcat(char *, char *, int);
+char *_stringchar(char *, char);
 
 
 #endif
