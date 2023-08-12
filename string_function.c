@@ -31,7 +31,7 @@ char *_stringcopy(char *destin, char *sorce, int sn)
 }
 
 /**
- **_stringncat - concatenateStrings
+ **_stringcat - concatenateStrings
  *@destin: String One
  *@sorce: string two
  *@sn: bytes used
