@@ -11,7 +11,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
-
+#include <stddef.h>
 
 #define I_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
@@ -24,6 +24,28 @@ typedef struct liststring
 	struct liststring *next;
 } list_str;
 
+typedef struct passinform
+{
+        char *argument;
+        char **argvactor;
+        char *path;
+        int argcounter;
+        unsigned int line_counter;
+        int error_num;
+        int line_flag;
+        char *filename;
+        list_str *environ2;
+        list_str *history;
+        list_str *aliasnode;
+        char **environ;
+        int environ_changed;
+        int status;
+        char **cmd_buffer;
+        int cmd_buffer_type;
+        int readfiledis;
+        int histcount;
+} i_t;
+
 typedef struct exit_changD
 {
 	char *type;
@@ -31,34 +53,10 @@ typedef struct exit_changD
 } exit_changD_table;
 
 
-typedef struct passinform
-{
-	char *argument;
-	char **argvactor;
-	char *path;
-	int argcounter;
-	unsigned int line_counter;
-	int error_num;
-	int line_flag;
-	char *filename;
-	list_str *environ2;
-	list_str *history;
-	list_str *aliasnode;
-	char **environ;
-	int environ_changed;
-	int status;
-
-	char **cmd_buffer; 
-	int cmd_buffer_type;
-	int readfiledis;
-	int histcount;
-} i_t;
-
 /* _memory.c */
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
-
 
 void free_memory(void **ptr);
 void print_tab(char **tab);
@@ -90,21 +88,16 @@ int _CDhelp(i_t *);
 
 
 /*number_comments.c*/
-
 int _strErrortoi(char *);
-
 void say_error(i_t *, char *);
-
 int print_decimal(int, int);
 char *covert_number(long int, int, int);
 void remo_comm(char *);
 
 
-
 /* printString.c */
 void _inputputs(char *);
 int _inputputchar(char);
-
 int _putfdis(char , int );
 int _putsfdis(char *, int );
 
@@ -122,14 +115,19 @@ int _setEnvo(i_t *, char *, char *);
 
 
 /* lists.c */
-
 list_str *addto_end(list_str **, const char *, int);
 size_t say_stringlist(const list_str *);
 
 
-/* string.c */
-
+/* str.c */
 int _stringcomp(char *, char *);
 char *startWith(const char *, const char *);
+int _stringlen(char *);
+char *_stringcat2(char *, char *);
+
+/* parserpath.c */
+int it_cmd(i_t *, char *);
+char *duplicate_chars(char *, int, int);
+char *findthe_path(i_t *, char *, char *);
 
 #endif
