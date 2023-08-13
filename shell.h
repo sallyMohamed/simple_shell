@@ -16,7 +16,7 @@
 #define I_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
-
+extern char **environ;
 typedef struct liststring
 {
 	int number;
@@ -58,16 +58,16 @@ typedef struct exit_changD
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
-void free_memory(void **ptr);
-void print_tab(char **tab);
-int is_separator(char c);
-int count_ws(char *str);
-char **free_ws(char **ws, int w_count);
-char **strtow(char *str);
-char *_strcpy(char *destion,  char *source);
-char *_strduplicate(char *str);
-void _puts(char *str);
-int _putchar(char c);
+void free_memory(void **);
+void print_tab(char **);
+int is_separator(char);
+int count_ws(char *);
+char **free_ws(char **, int);
+char **strtow(char *);
+char *_strcpy(char *,  char *);
+char *_strduplicate(char *);
+void _puts(char *);
+int _putchar(char);
 
 /* _atoiandexit.c */
 int interactmode(i_t *);
@@ -114,10 +114,15 @@ int _unsetEnvo(i_t *, char *);
 int _setEnvo(i_t *, char *, char *);
 
 
-/* lists.c */
+/* linkedlists.c */
 list_str *addto_end(list_str **, const char *, int);
 size_t say_stringlist(const list_str *);
+list_str *addto_start(list_str **h, const char *strg, int number);
+void _freelist(list_str **h_ptr);
+int _deletenodeatindex(list_str **h, unsigned int inx);
 
+/* memset.c */
+void *_memset(void *s, int c, size_t n);
 
 /* str.c */
 int _stringcomp(char *, char *);
