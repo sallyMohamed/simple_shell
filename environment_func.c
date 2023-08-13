@@ -56,7 +56,6 @@ int _setenvironment(i_t *i)
 /**
  * _unsetenvironment - RemoveEnvoVariable
  * @i: StructurArguments
- *
  *  Return: Always 0
  */
 int _unsetenvironment(i_t *i)
@@ -69,7 +68,7 @@ int _unsetenvironment(i_t *i)
 		return (1);
 	}
 	for (c = 1; c <= i->argcounter; c++)
-		_unsetenv(i, i->argvactor[c]);
+		_unsetEnvo(i, i->argvactor[c]);
 
 	return (0);
 }
@@ -77,7 +76,6 @@ int _unsetenvironment(i_t *i)
 /**
  * environment_list - env linked list
  * @i: StructurArguments.
- *
  * Return: Always 0
  */
 int environment_list(i_t *i)
