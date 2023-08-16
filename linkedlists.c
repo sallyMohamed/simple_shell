@@ -16,7 +16,7 @@ return (NULL);
 new_h = malloc(sizeof(list_str));
 if (!new_h)
 return (NULL);
-_memset((void *)new_h, 0, sizeof(list_str));
+_memoryset((void *)new_h, 0, sizeof(list_str));
 new_h->number = number;
 if (string)
 {
@@ -54,7 +54,7 @@ nod_e = *h;
 newnod_e = malloc(sizeof(list_str));
 if (!newnod_e)
 return (NULL);
-_memset((void *)newnod_e, 0, sizeof(list_str));
+_memoryset((void *)newnod_e, 0, sizeof(list_str));
 newnod_e->number = number;
 if (string)
 {

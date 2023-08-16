@@ -131,8 +131,10 @@ list_str *addto_start(list_str **h, const char *strg, int number);
 void _freelist(list_str **h_ptr);
 int _deletenodeatindex(list_str **h, unsigned int inx);
 
-/* memset.c */
-void *_memset(void *s, int c, size_t n);
+/* relocate.c */
+char *_memoryset(char *c, char p, unsigned int e);
+void F_Free(char **ee);
+void *_relocate(void *ppt, unsigned int old, unsigned int n_ew);
 
 /* str.c */
 int _stringcomp(char *, char *);
