@@ -73,7 +73,7 @@ int _changdir(i_t *i)
 	}
 	else
 	{
-		_setenvironment(i, "O_pwd", _environment(i, "pwd="));
+		_setenvironment(i, "O_pwd", _envData(i, "pwd="));
 		_setenvironment(i, "pwd", getcwd(buffer_size, 1024));
 	}
 	return (0);
