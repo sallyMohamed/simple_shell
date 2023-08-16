@@ -96,7 +96,7 @@ int print_decimal(int integer, int fdis)
 char *convertNumber(long int n, int b, int f)
 {
 	static char *arr;
-	static char b[50];
+	static char b2[50];
 	char s = 0;
 	char *poi;
 	unsigned long n2 = n;
@@ -108,7 +108,7 @@ char *convertNumber(long int n, int b, int f)
 
 	}
 	arr = f & CONV_LOWCAS ? "0123456789abcdef" : "0123456789ABCDEF";
-	poi = &b[49];
+	poi = &b2[49];
 	*poi = '\0';
 
 	do	{
