@@ -15,7 +15,7 @@ size_t linkedlist_length(const list_str *e)
 }
 
 /**
- * list_TOstr - returns an array of strings
+ * **list_TOstr - returns an array of strings
  * @h: pointer
  * Return: array of strings
  */
