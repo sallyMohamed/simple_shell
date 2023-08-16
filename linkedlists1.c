@@ -19,7 +19,7 @@ size_t linkedlist_length(const list_str *e)
  * @h: pointer
  * Return: array of strings
  */
-char **list_Tostr(list_str *h)
+char **list_TOstr(list_str *h)
 {
     list_str *nod_e = h;
     size_t i = linkedlist_length(h), j;
