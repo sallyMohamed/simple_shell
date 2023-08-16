@@ -39,7 +39,7 @@ void say_error(i_t *i, char *stri)
 {
 	_inputputs(i->filename);
 	_inputputs(": ");
-	print_d(i->line_counter, STDERR_FILENO);
+	print_decimal(i->line_counter, STDERR_FILENO);
 	_inputputs(": ");
 	_inputputs(i->argvactor[0]);
 	_inputputs(": ");
