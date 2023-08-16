@@ -45,15 +45,15 @@ return (dio);
 int _putchar(char c)
 {
 static int i;
-static char buf[WRITE_BUF_SIZE];
+static char buffer[WRITE_BUFFERSIZE];
 
-if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+if (c == BUFFER_FLUSH || i >= WRITE_BUFFERSIZE)
 {
-write(1, buf, i);
+write(1, buffer, i);
 i = 0;
 }
-if (c != BUF_FLUSH)
-buf[i++] = c;
+if (c != BUFFER_FLUSH)
+buffer[j++] = c;
 return (1);
 }
 /**

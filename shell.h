@@ -56,9 +56,9 @@ typedef struct exit_changD
 
 
 /* _memory.c */
-#define READ_BUF_SIZE 1024
-#define WRITE_BUF_SIZE 1024
-#define BUF_FLUSH -1
+#define READ_BUFFERSIZE 1024
+#define WRITE_BUFFERSIZE 1024
+#define BUFFER_FLUSH -1
 
 void free_memory(void **);
 void print_tab(char **);
