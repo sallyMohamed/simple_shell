@@ -69,17 +69,17 @@ int print_decimal(int integer, int fdis)
 	}
 	else
 		_abs_ = integer;
-	curr = _abs_;
+	current = _abs_;
 	for (j = 1000000000; j > 1; j /= 10)
 	{
 		if (_abs_ / j)
 		{
-			__putchar('0' + curr / j);
+			__putchar('0' + current / j);
 			counter++;
 		}
-		curr %= j;
+		current %= j;
 	}
-	__putchar('0' + curr);
+	__putchar('0' + current);
 	counter++;
 
 	return (counter);
@@ -96,7 +96,7 @@ int print_decimal(int integer, int fdis)
 char *convertNumber(long int n, int b, int f)
 {
 	static char *arr;
-	static char buf[50];
+	static char b[50];
 	char s = 0;
 	char *poi;
 	unsigned long n2 = n;
