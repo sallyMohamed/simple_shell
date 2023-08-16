@@ -145,4 +145,14 @@ int it_cmd(i_t *, char *);
 char *duplicate_chars(char *, int, int);
 char *findthe_path(i_t *, char *, char *);
 
+/* linkedlists1.c */
+size_t linkedlist_length(const list_str *e);
+char **list_Tostr(list_str *h)
+size_t print_linkedlist(const list_str *e);
+list_str *node_startWith(list_str *nod_e, char *last, char k);
+ssize_t get_nodeindex(list_str *h, list_str *nod_e);
+/**convert_number**/
+char *convert_number(int number, int base);
+void reverse_string(char *str);
+
 #endif

@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include "shell.h"
 /**
- * main - Entry point
+ * _memset - function to memset.
  * Returns: 0 is success
 */
 
@@ -15,12 +15,4 @@ p++;
 n--;
 }
 return (s);
-}
-
-int main()
-{
-char arr[10];
-_memset(arr, 'A', sizeof(arr));
-/* Now the 'arr' should be filled with 'A' characters */
-return (0);
 }
