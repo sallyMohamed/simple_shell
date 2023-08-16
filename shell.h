@@ -123,8 +123,6 @@ list_str *addto_start(list_str **h, const char *strg, int number);
 void _freelist(list_str **h_ptr);
 int _deletenodeatindex(list_str **h, unsigned int inx);
 
-
-
 /* memset.c */
 void *_memset(void *s, int c, size_t n);
 
@@ -140,13 +138,12 @@ char *duplicate_chars(char *, int, int);
 char *findthe_path(i_t *, char *, char *);
 
 /* linkedlists1.c */
+
 size_t linkedlist_length(const list_str *);
 char **list_Tostr(list_str *);
 size_t print_linkedlist(const list_str *);
 list_str *node_startWith(list_str *, char *, char );
 ssize_t get_nodeindex(list_str *, list_str *);
-
-
 
 /**convert_number**/
 char *convert_number(int number, int base);
