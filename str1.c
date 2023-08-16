@@ -44,13 +44,13 @@ return (dio);
 */
 int _putchar(char c)
 {
-static int i;
+static int j;
 static char buffer[WRITE_BUFFERSIZE];
 
-if (c == BUFFER_FLUSH || i >= WRITE_BUFFERSIZE)
+if (c == BUFFER_FLUSH || j >= WRITE_BUFFERSIZE)
 {
-write(1, buffer, i);
-i = 0;
+write(1, buffer, j);
+j = 0;
 }
 if (c != BUFFER_FLUSH)
 buffer[j++] = c;
