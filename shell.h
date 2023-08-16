@@ -140,7 +140,7 @@ char *findthe_path(i_t *, char *, char *);
 /* linkedlists1.c */
 
 size_t linkedlist_length(const list_str *);
-char **list_Tostr(list_str *);
+char **list_TOstr(list_str *);
 size_t print_linkedlist(const list_str *);
 list_str *node_startWith(list_str *, char *, char );
 ssize_t get_nodeindex(list_str *, list_str *);
