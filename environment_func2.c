@@ -69,7 +69,7 @@ int _setEnvo(i_t *i, char *variable, char *vlu)
 	buffer = malloc(_stringlen(variable) + _stringlen(vlu) + 2);
 	if (!buffer)
 		return (1);
-	__stringcopy(buffer, variable);
+	_strcpy(buffer, variable);
 	_stringcat2(buffer, "=");
 	_stringcat2(buffer, vlu);
 	nod_e = i->environ2;
