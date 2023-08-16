@@ -26,7 +26,7 @@ char **getEnvo(i_t *i)
  */
 int _unsetEnvo(i_t *i, char *variable)
 {
-	list_t *nod_e = i->environ2;
+	list_str *nod_e = i->environ2;
 	size_t c = 0;
 	char *pio;
 
@@ -61,7 +61,7 @@ int _unsetEnvo(i_t *i, char *variable)
 int _setEnvo(i_t *i, char *variable, char *vlu)
 {
 	char *buffer = NULL;
-	list_t *nod_e;
+	list_str *nod_e;
 	char *pio;
 
 	if (!variable || !vlu)

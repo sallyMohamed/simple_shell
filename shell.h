@@ -126,7 +126,7 @@ int _deletenodeatindex(list_str **h, unsigned int inx);
 
 /* linkedlists2.c */
 
-char **list_TOstr(list_t *);
+char **list_TOstr(list_str *);
 
 
 
