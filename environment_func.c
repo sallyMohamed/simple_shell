@@ -8,7 +8,7 @@
  */
 int _environment(i_t *i)
 {
-	say_stringlist(i->environ);
+	say_stringlist(i->environ2);
 	return (0);
 }
 
@@ -21,7 +21,7 @@ int _environment(i_t *i)
  */
 char *_envData(i_t *i, const char *env_name)
 {
-	list_str *nod_e = i->environ;
+	list_str *nod_e = i->environ2;
 	char *pio;
 
 	while (nod_e)
@@ -85,6 +85,6 @@ int environment_list(i_t *i)
 
 	for (n = 0; environ2[n]; n++)
 		addto_end(&nod_e, environ2[n], 0);
-	i->environ = nod_e;
+	i->environ2 = nod_e;
 	return (0);
 }

@@ -25,7 +25,7 @@ break;
 line[nread - 1] = '\0'; /* Removing the newline character */
 if (_stringcomp(line, "exit") == 0)
 break;
-char **commands = strtow(line);
+/*char **commands = strtow(line);
 if (commands)
 {
 int status = execute_commands(&i, commands);
@@ -41,7 +41,7 @@ if (line)
 {
 free(line);
 line = NULL;
-}
+}*/
 }
 if (line)
 free(line);
