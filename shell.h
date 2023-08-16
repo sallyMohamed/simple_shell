@@ -13,6 +13,14 @@
 #include <errno.h>
 #include <stddef.h>
 
+
+
+/* number_comments.c */
+#define CONV_LOWCAS	1
+#define CONV_UNSIGN	2
+
+
+
 #define I_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
@@ -93,7 +101,7 @@ int _CDhelp(i_t *);
 int _strErrortoi(char *);
 void say_error(i_t *, char *);
 int print_decimal(int, int);
-char *covert_number(long int, int, int);
+char *covertNumber(long int, int, int);
 void remo_comm(char *);
 
 
