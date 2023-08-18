@@ -3,9 +3,7 @@
 /**
  * _exitCmd - exitShell
  * @i: StructureArguments
- *         
  *  Return: exitsWithExit status
- *        
  */
 int _exitCmd(i_t *i)
 {
@@ -32,7 +30,6 @@ int _exitCmd(i_t *i)
 /**
  * _changdir - changeDirectory
  * @i: StructureArguments.
- *          
  *  Return:  0
  */
 int _changdir(i_t *i)
@@ -47,7 +44,7 @@ int _changdir(i_t *i)
 	{
 		directory = _envData(i, "HOME=");
 		if (!directory)
-			chdirectory = 
+			chdirectory =
 				chdir((directory = _envData(i, "pwd=")) ? directory : "/");
 		else
 			chdirectory = chdir(directory);
@@ -61,7 +58,7 @@ int _changdir(i_t *i)
 			return (1);
 		}
 		_puts(_envData(i, "O_pwd=")), _putchar('\n');
-		chdirectory = 
+		chdirectory =
 			chdir((directory = _envData(i, "O_pwd=")) ? directory : "/");
 	}
 	else
@@ -82,7 +79,6 @@ int _changdir(i_t *i)
 /**
  * _CDhelp - changeCurrent directory help
  * @i: StructureArguments.
- *          
  *  Return: Always 0
  */
 int _CDhelp(i_t *i)
@@ -92,6 +88,6 @@ int _CDhelp(i_t *i)
 	argu_arr = i->argvactor;
 	_puts("Sorry this not developed \n");
 	if (0)
-		_puts(*argu_arr); 
+		_puts(*argu_arr);
 	return (0);
 }

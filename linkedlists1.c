@@ -7,11 +7,11 @@
  */
 size_t linkedlist_length(const list_str *e)
 {
-    size_t j;
-    for (j = 0; e != NULL; e = e->next, j++)
-    {
-    }
-    return (j);
+size_t j;
+for (j = 0; e != NULL; e = e->next, j++)
+{
+}
+return (j);
 }
 
 /**
@@ -21,30 +21,30 @@ size_t linkedlist_length(const list_str *e)
  */
 char **list_TOstr(list_str *h)
 {
-    list_str *nod_e = h;
-    size_t i = linkedlist_length(h), j;
-    char **strings;
-    char *string;
-    if (!h || !i)
-        return (NULL);
-    strings = malloc(sizeof(char *) * (i + 1));
-    if (!strings)
-        return (NULL);
-    for (i = 0; nod_e; nod_e = nod_e->next, i++)
-    {
-        string = malloc(_stringlen(nod_e->string) + 1);
-        if (!string)
-        {
-            for (j = 0; j < i; j++)
-                free(strings[j]);
-            free(strings);
-            return (NULL);
-        }
-        string = _strcpy(string, nod_e->string);
-        strings[i] = string;
-    }
-    strings[i] = NULL;
-    return (strings);
+list_str *nod_e = h;
+size_t i = linkedlist_length(h), j;
+char **strings;
+char *string;
+if (!h || !i)
+return (NULL);
+strings = malloc(sizeof(char *) * (i + 1));
+if (!strings)
+return (NULL);
+for (i = 0; nod_e; nod_e = nod_e->next, i++)
+{
+string = malloc(_stringlen(nod_e->string) + 1);
+if (!string)
+{
+for (j = 0; j < i; j++)
+free(strings[j]);
+free(strings);
+return (NULL);
+}
+string = _strcpy(string, nod_e->string);
+strings[i] = string;
+}
+strings[i] = NULL;
+return (strings);
 }
 
 /**
@@ -54,16 +54,16 @@ char **list_TOstr(list_str *h)
  */
 size_t print_linkedlist(const list_str *e)
 {
-    size_t i;
-    for (i = 0; e != NULL; e = e->next, i++)
-    {
-        _puts(convert_number(e->number, 10));
-        _putchar(':');
-        _putchar(' ');
-        _puts(e->string ? e->string : "(nil)");
-        _puts("\n");
-    }
-    return (i);
+size_t i;
+for (i = 0; e != NULL; e = e->next, i++)
+{
+_puts(convert_number(e->number, 10));
+_putchar(':');
+_putchar(' ');
+_puts(e->string ? e->string : "(nil)");
+_puts("\n");
+}
+return (i);
 }
 
 /**
@@ -75,14 +75,14 @@ size_t print_linkedlist(const list_str *e)
  */
 list_str *node_startWith(list_str *nod_e, char *last, char k)
 {
-    char *y = NULL;
-    for (; nod_e != NULL; nod_e = nod_e->next)
-    {
-        y = startWith(nod_e->string, last);
-        if (y && ((k == -1) || (*y == k)))
-            return (nod_e);
-    }
-    return (NULL);
+char *y = NULL;
+for (; nod_e != NULL; nod_e = nod_e->next)
+{
+y = startWith(nod_e->string, last);
+if (y && ((k == -1) || (*y == k)))
+return (nod_e);
+}
+return (NULL);
 }
 
 /**
@@ -93,11 +93,11 @@ list_str *node_startWith(list_str *nod_e, char *last, char k)
  */
 ssize_t get_nodeindex(list_str *h, list_str *nod_e)
 {
-    size_t j = 0;
-    for (; h != NULL; h = h->next, j++)
-    {
-        if (h == nod_e)
-            return (j);
-    }
-    return (-1);
+size_t j = 0;
+for (; h != NULL; h = h->next, j++)
+{
+if (h == nod_e)
+return (j);
+}
+return (-1);
 }

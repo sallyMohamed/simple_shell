@@ -21,10 +21,10 @@ void _inputputs(char *string)
 
 /**
  * _inputputchar - writes the character c to stderr
- * @ch: character 
+ * @ch: character
  *
  * Return: On success 1.
- * On error, -1 
+ * On error, -1
  */
 int _inputputchar(char ch)
 {

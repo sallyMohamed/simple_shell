@@ -14,6 +14,12 @@
 #include <stddef.h>
 
 
+/* for command chaining */
+#define EM_OR		1
+#define EM_AND          2
+#define EM_CHAIN	3
+
+
 
 /* number_comments.c */
 #define CONV_LOWCAS	1
@@ -158,5 +164,18 @@ ssize_t get_nodeindex(list_str *, list_str *);
 /**convert_number**/
 char *convert_number(int number, int base);
 void reverse_string(char *str);
+
+/* variables.c */
+int isChain(i_t *i, char *buffer, size_t *o);
+void chainCheck(i_t *i, char *buffer, size_t *o, size_t j, size_t length);
+int replaceAlias(i_t *i);
+int replaceVariables(i_t *i);
+int replaceStr(char **old_str, char *new_str);
+
+/*shellMainloop.c */
+int shellLoop(i_t *i, char **arvector);
+int find_exit_changD(i_t *i);
+void findCmd(i_t *i);
+void forkCmd(i_t *i);
 
 #endif
