@@ -203,7 +203,7 @@ int renumberHis(i_t *i);
 
 
 /* alias_history*/
-int __CDhistory(i_t *);
+int _CDhistory(i_t *);
 int _filealias(i_t *);
 
 /* input_buffer.c */
@@ -211,6 +211,9 @@ ssize_t getInput(i_t *);
 int _getl(i_t *, char **, size_t *);
 void sHandler(int);
 
-
+/* info.c */
+void clear_i(i_t *);
+void set_i(i_t *, char **);
+void free_i(i_t *, int);
 
 #endif
