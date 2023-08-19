@@ -25,6 +25,23 @@
 #define CONV_LOWCAS	1
 #define CONV_UNSIGN	2
 
+#define USEE_GETLINE 0
+#define USEE_STRTOK 0
+
+#define HISTORY_FILE    ".simple_shell_history"
+#define HISTORY_MAX     4096
+
+/* _memory.c */
+#define READ_BUFFERSIZE 1024
+#define WRITE_BUFFERSIZE 1024
+#define BUFFER_FLUSH -1
+
+
+#define CMD_NORMAL	0
+#define CMD_OR		1
+#define CMD_AND		2
+#define CMD_CHAIN	3
+
 
 
 #define I_INIT \
@@ -68,11 +85,6 @@ typedef struct exit_changD
 	int (*func)(i_t *);
 } exit_changD_table;
 
-
-/* _memory.c */
-#define READ_BUFFERSIZE 1024
-#define WRITE_BUFFERSIZE 1024
-#define BUFFER_FLUSH -1
 
 void free_memory(void **);
 void print_tab(char **);
@@ -177,5 +189,28 @@ int shellLoop(i_t *i, char **arvector);
 int find_exit_changD(i_t *i);
 void findCmd(i_t *i);
 void forkCmd(i_t *i);
+
+
+/* HIS.C */
+
+char *getHisfile(i_t *i);
+int writeHistory(i_t *i);
+int readHistory(i_t *i);
+int build_hlist(i_t *i, char *buff, int linec);
+int renumberHis(i_t *i);
+
+
+
+
+/* alias_history*/
+int __CDhistory(i_t *);
+int _filealias(i_t *);
+
+/* input_buffer.c */
+ssize_t getInput(i_t *);
+int _getl(i_t *, char **, size_t *);
+void sHandler(int);
+
+
 
 #endif
