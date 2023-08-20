@@ -20,7 +20,7 @@ e = getInput(i);
 if (e != -1)
 {
 set_i(i, arvector);
-built_in_ret = findBuiltin(i);
+built_in_ret = find_exit_changD(i);
 if (built_in_ret == -1)
 findCmd(i);
 }

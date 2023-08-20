@@ -190,6 +190,9 @@ int find_exit_changD(i_t *i);
 void findCmd(i_t *i);
 void forkCmd(i_t *i);
 
+/* strtow2.c */
+char **string_tow(char *string, char *e);
+char **string_tow2(char *string, char e);
 
 /* HIS.C */
 
@@ -198,9 +201,6 @@ int writeHistory(i_t *i);
 int readHistory(i_t *i);
 int build_hlist(i_t *i, char *buff, int linec);
 int renumberHis(i_t *i);
-
-
-
 
 /* alias_history*/
 int _CDhistory(i_t *);
