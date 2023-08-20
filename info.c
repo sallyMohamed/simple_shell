@@ -24,7 +24,7 @@ void set_i(i_t *i, char **avactor)
 	i->filename = avactor[0];
 	if (i->argument)
 	{
-		i->argvactor = strtow(i->argument, " \t");
+		i->argvactor = string_tow(i->argument, " \t");
 		if (!i->argvactor)
 		{
 
