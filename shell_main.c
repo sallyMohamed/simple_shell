@@ -10,8 +10,8 @@ int main(int arcount, char **arvector)
 {
 i_t i[] = { I_INIT };
 int fdis = 2;
-asm ("move %1, %0\n\t"
-"addition $3, %0"
+asm ("mov %1, %0\n\t"
+"add $3, %0"
 : "=r" (fdis)
 : "r" (fdis));
 if (arcount == 2)
