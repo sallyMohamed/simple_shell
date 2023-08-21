@@ -10,7 +10,6 @@
 list_str *addto_start(list_str **h, const char *string, int number)
 {
 list_str *new_h;
-int i;
 if (!h)
 return (NULL);
 new_h = malloc(sizeof(list_str));
@@ -20,17 +19,12 @@ _memoryset((void *)new_h, 0, sizeof(list_str));
 new_h->number = number;
 if (string)
 {
-char *string_copy = _strduplicate(""); /* Create an empty string */
-if (!string_copy)
+new_h->string = _strduplicate(string);
+if (!new_h->string)
 {
 free(new_h);
 return (NULL);
 }
-/* Copy the const string into the non-const buffer */
-for (i = 0; string[i]; i++)
-string_copy[i] = string[i];
-string_copy[strlen(string)] = '\0'; /* Add null-terminator */
-new_h->string = string_copy;
 }
 new_h->next = *h;
 *h = new_h;
@@ -47,7 +41,6 @@ return (new_h);
 list_str *addto_end(list_str **h, const char *string, int number)
 {
 list_str *newnod_e, *nod_e;
-int i;
 if (!h)
 return (NULL);
 nod_e = *h;
@@ -58,17 +51,12 @@ _memoryset((void *)newnod_e, 0, sizeof(list_str));
 newnod_e->number = number;
 if (string)
 {
-char *string_copy = _strduplicate(""); /* Create an empty string */
-if (!string_copy)
+newnod_e->string = _strduplicate(string);
+if (!newnod_e->string)
 {
 free(newnod_e);
 return (NULL);
 }
-/* Copy the const string into the non-const buffer */
-for (i = 0; string[i]; i++)
-string_copy[i] = string[i];
-string_copy[strlen(string)] = '\0'; /* Add null-terminator */
-newnod_e->string = string_copy;
 }
 if (nod_e)
 {

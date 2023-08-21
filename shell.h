@@ -92,8 +92,10 @@ int is_separator(char);
 int count_ws(char *);
 char **free_ws(char **, int);
 char **strtow(char *);
+
+/* str1 */
 char *_strcpy(char *,  char *);
-char *_strduplicate(char *);
+char *_strduplicate(const char *);
 void _puts(char *);
 int _putchar(char);
 

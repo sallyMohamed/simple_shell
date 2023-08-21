@@ -22,7 +22,7 @@ return (destion);
 * Return: NULL if str = NULL, if success returns a pointer to
 * the duplicated string.NULL if insufficient memory was available.
 */
-char *_strduplicate(char *str)
+char *_strduplicate(const char *str)
 {
 char *dio;
 unsigned int len, i;
