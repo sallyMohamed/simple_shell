@@ -86,7 +86,7 @@ typedef struct exit_changD
 } exit_changD_table;
 
 
-void free_memory(void **);
+int free_memory(void **);
 void print_tab(char **);
 int is_separator(char);
 int count_ws(char *);
@@ -119,7 +119,7 @@ int _CDhelp(i_t *);
 int _strErrortoi(char *);
 void say_error(i_t *, char *);
 int print_decimal(int, int);
-char *covertNumber(long int, int, int);
+char *convertNumber(long int, int, int);
 void remo_comm(char *);
 
 

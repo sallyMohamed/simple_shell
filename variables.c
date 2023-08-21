@@ -107,13 +107,13 @@ continue;
 if (!_stringcomp(i->argvactor[j], "$?"))
 {
 replaceStr(&(i->argvactor[j]),
-_strduplicate(covertNumber(i->status, 10, 0)));
+_strduplicate(convertNumber(i->status, 10, 0)));
 continue;
 }
 if (!_stringcomp(i->argvactor[j], "$$"))
 {
 replaceStr(&(i->argvactor[j]),
-_strduplicate(covertNumber(getpid(), 10, 0)));
+_strduplicate(convertNumber(getpid(), 10, 0)));
 continue;
 }
 nod_e = node_startWith(i->environ2, &i->argvactor[j][1], '=');
