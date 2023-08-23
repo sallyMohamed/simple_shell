@@ -20,33 +20,28 @@ char **getEnvo(i_t *i)
 /**
  * _unsetEnvo - RemovEnvironment variable
  * @i: StructureArguments.
- *
  *  Return: 1 delete, 0 else
  * @variable: envVar String
  */
 int _unsetEnvo(i_t *i, char *variable)
 {
-	list_str *nod_e = i->environ2;
-	size_t c = 0;
-	char *pio;
-
-	if (!nod_e || !variable)
-		return (0);
-
-	while (nod_e)
-	{
-		pio = startWith(nod_e->string, variable);
-		if (pio && *pio == '=')
-		{
-			i->environ_changed = _deletenodeatindex(&(i->environ2), c);
-			c = 0;
-			nod_e = i->environ2;
-			continue;
-		}
-		nod_e = nod_e->next;
-		c++;
-	}
-	return (i->environ_changed);
+list_str *nod_e = i->environ2;
+size_t c = 0;
+char *pio;
+if (!nod_e || !variable)
+return (0);
+while (nod_e)
+{
+pio = startWith(nod_e->string, variable);
+if (pio && *pio == '=')
+{
+i->environ_changed = _deletenodeatindex(&(i->environ2), c);
+return (1); /* Variable found and deleted*/
+}
+nod_e = nod_e->next;
+c++;
+}
+return (0); /* Variable not found or error */
 }
 
 /**
