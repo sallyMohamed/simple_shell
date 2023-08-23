@@ -32,7 +32,50 @@ int _exitCmd(i_t *i)
  * @i: StructureArguments.
  *  Return:  0
  */
-int _changdir(i_t *i)
+
+
+/**
+ * _cd_builtin - Implements the builtin command cd
+ *
+ * @i: The structure containing command and arguments
+ * Return: Always 0
+ */
+int _cd_builtin(i_t *i)
+{
+    char *new_dir = i->argvactor[1];
+
+    if (!new_dir) {
+        new_dir = _envData(i, "HOME=");
+        if (!new_dir)
+            new_dir = _envData(i, "pwd=");
+    } else if (_stringcomp(new_dir, "-") == 0) {
+        new_dir = _envData(i, "O_pwd=");
+        if (!new_dir) {
+            _puts("No previous directory stored\n");
+            return (1);
+        }
+    }
+
+    char *current_dir = getcwd(NULL, 0);
+    if (!current_dir) {
+        say_error(i, "getcwd failed");
+        return (1);
+    }
+
+    int chdir_result = chdir(new_dir);
+    if (chdir_result == -1) {
+        say_error(i, "chdir failed");
+        free(current_dir);
+        return (1);
+    }
+
+    _setEnvo(i, "O_pwd", current_dir);
+    _setEnvo(i, "pwd", getcwd(NULL, 0));
+    free(current_dir);
+
+    return (0);
+}
+/*int _changdir(i_t *i)
 {
 	char *x, *directory, buffer_size[1024];
 	int chdirectory;
@@ -74,7 +117,7 @@ int _changdir(i_t *i)
 		_setEnvo(i, "pwd", getcwd(buffer_size, 1024));
 	}
 	return (0);
-}
+}*/
 
 /**
  * _CDhelp - changeCurrent directory help
