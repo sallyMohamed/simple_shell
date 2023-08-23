@@ -64,7 +64,7 @@ int _unsetenvironment(i_t *i)
 
 	if (i->argcounter == 1)
 	{
-		_inputputs("little arguements.\n");
+		_inputputs("Too few arguements.\n");
 		return (1);
 	}
 	for (c = 1; c <= i->argcounter; c++)
