@@ -36,11 +36,7 @@
 #define CMD_NORMAL	0
 #define CMD_OR		1
 #define CMD_AND		2
-#define CMD_CHAIN	3
-
-#define I_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-0, 0, 0}
+#define CMD_CHAIN       3
 
 extern char **environ;
 /**
@@ -99,6 +95,10 @@ int cmd_buffer_type;
 int readfiledis;
 int histcount;
 } i_t;
+
+#define I_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+0, 0, 0}
 
 /**
  *struct exit_changD - a exit_changD string and related function
