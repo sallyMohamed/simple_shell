@@ -79,7 +79,7 @@ size_t say_stringlist(const list_str *h)
 size_t j = 0;
 while (h)
 {
-_puts(h->string ? h->string : "(null)");
+_puts(h->string ? h->string : "(nil)");
 _puts("\n");
 h = h->next;
 j++;
