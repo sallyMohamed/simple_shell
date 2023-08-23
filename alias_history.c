@@ -22,17 +22,11 @@ int _CDhistory(i_t *i)
  */
 int unsetAlias(i_t *i, char *s)
 {
-	char *pio, count;
-	int r;
-
-	pio = _stringchar(s, '=');
-	if (!pio)
-		return (1);
-	count = *pio;
-	*pio = 0;
-	r = _deletenodeatindex(&(i->aliasnode),
-		get_nodeindex(i->aliasnode, node_startWith(i->aliasnode, s, -1)));
-	*pio = count;
+int r;
+r = _deletenodeatindex(&(i->aliasnode),
+get_nodeindex(i->aliasnode, node_startWith(i->aliasnode, s, -1)));
+if (!s)
+return (1);
 	return (r);
 }
 
@@ -72,7 +66,7 @@ int sayAlias(list_str *nod_e)
 		pio = _stringchar(nod_e->string, '=');
 		for (aa = nod_e->string; aa <= pio; aa++)
 			_putchar(*aa);
-		_putchar('\'');
+		_putchar('=');
 		_puts(pio + 1);
 		_puts("'\n");
 		return (0);
