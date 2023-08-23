@@ -45,21 +45,21 @@ int _changdir(i_t *i)
 		directory = _envData(i, "HOME=");
 		if (!directory)
 			chdirectory =
-				chdir((directory = _envData(i, "pwd=")) ? directory : "/");
+				chdir((directory = _envData(i, "PWD=")) ? directory : "/");
 		else
 			chdirectory = chdir(directory);
 	}
 	else if (_stringcomp(i->argvactor[1], "-") == 0)
 	{
-		if (!_envData(i, "O_pwd="))
+		if (!_envData(i, "OLDPWD="))
 		{
 			_puts(x);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_envData(i, "O_pwd=")), _putchar('\n');
+		_puts(_envData(i, "OLDPWD=")), _putchar('\n');
 		chdirectory =
-			chdir((directory = _envData(i, "O_pwd=")) ? directory : "/");
+			chdir((directory = _envData(i, "OLDPWD=")) ? directory : "/");
 	}
 	else
 		chdirectory = chdir(i->argvactor[1]);
@@ -70,8 +70,8 @@ int _changdir(i_t *i)
 	}
 	else
 	{
-		_setEnvo(i, "O_pwd", _envData(i, "pwd="));
-		_setEnvo(i, "pwd", getcwd(buffer_size, 1024));
+		_setEnvo(i, "OLDPWD", _envData(i, "PWD="));
+		_setEnvo(i, "PWD", getcwd(buffer_size, 1024));
 	}
 	return (0);
 }
