@@ -7,9 +7,20 @@
  */
 int _environment(i_t *i)
 {
-say_stringlist(i->environ2);
+char *value;
+char **envo = getEnvo(i);
+int j;
+/* Loop through envo and print each variable */
+for (j = 0; envo[j] != NULL; j++)
+{
+value = _envData(i, envo[j]);
+_puts(envo[j]);
+/* Find the value of the environment variable*/
+if (value)
+_puts(value);
+_putchar('\n');
+}
 return (0);
-
 }
 
 /**
