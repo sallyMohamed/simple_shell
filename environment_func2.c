@@ -36,12 +36,14 @@ pio = startWith(nod_e->string, variable);
 if (pio && *pio == '=')
 {
 i->environ_changed = _deletenodeatindex(&(i->environ2), c);
-return (1); /* Variable found and deleted*/
+c = 0;
+nod_e = i->environ2;
+continue;
 }
 nod_e = nod_e->next;
 c++;
 }
-return (0); /* Variable not found or error */
+return (i->environ_changed);
 }
 
 /**
