@@ -22,18 +22,17 @@ int _CDhistory(i_t *i)
  */
 int unsetAlias(i_t *i, char *s)
 {
-        char *pio, count;
-        int r;
-
-        pio = _stringchar(s, '=');
-        if (!pio)
-                return (1);
-        count = *pio;
-        *pio = 0;
-        r = _deletenodeatindex(&(i->aliasnode),
-                get_nodeindex(i->aliasnode, node_startWith(i->aliasnode, s, -1)));
-        *pio = count;
-        return (r);
+char *pio, count;
+int r;
+pio = _stringchar(s, '=');
+if (!pio)
+return (1);
+count = *pio;
+*pio = 0;
+r = _deletenodeatindex(&(i->aliasnode),
+get_nodeindex(i->aliasnode, node_startWith(i->aliasnode, s, -1)));
+*pio = count;
+return (r);
 }
 
 /**
@@ -60,25 +59,32 @@ int setAlias(i_t *i, char *s)
 /**
  * sayAlias - sayAlias string
  * @nod_e: the aliasNode
- *
  * Return: Always 0 success, 1 error
  */
 int sayAlias(list_str *nod_e)
 {
-	char *pio = NULL, *aa = NULL;
-
-	if (nod_e)
-	{
-		pio = _stringchar(nod_e->string, '=');
-		for (aa = nod_e->string; aa <= pio; aa++)
-			_putchar(*aa);
-		_putchar('=');
-		_putchar('\'');
-		_puts(pio + 1);
-		_puts("'\n");
-		return (0);
-	}
-	return (1);
+char *pio = NULL, *aa = NULL;
+if (nod_e)
+{
+pio = _stringchar(nod_e->string, '=');
+for (aa = nod_e->string; aa <= pio; aa++)
+_putchar(*aa);
+_putchar('=');
+_puts(pio + 1);
+_puts("'\n");
+return (0);
+}
+else
+{
+pio = _stringchar(nod_e->string, '\'');
+for (aa = nod_e->string; aa <= pio; aa++)
+_putchar(*aa);
+_putchar('\'');
+_puts(pio + 1);
+_puts("'\n");
+return (0);
+}
+return (1);
 }
 
 /**
