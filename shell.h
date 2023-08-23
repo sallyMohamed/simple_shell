@@ -13,13 +13,10 @@
 #include <errno.h>
 #include <stddef.h>
 
-
 /* for command chaining */
 #define EM_OR		1
 #define EM_AND          2
 #define EM_CHAIN	3
-
-
 
 /* number_comments.c */
 #define CONV_LOWCAS	1
@@ -36,53 +33,83 @@
 #define WRITE_BUFFERSIZE 1024
 #define BUFFER_FLUSH -1
 
-
 #define CMD_NORMAL	0
 #define CMD_OR		1
 #define CMD_AND		2
 #define CMD_CHAIN	3
 
-
-
 #define I_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-	0, 0, 0}
+0, 0, 0}
 
 extern char **environ;
-
+/**
+ *  struct liststring - linked list
+ *  @number: number
+ *  @string: string
+ *  @next: next node
+*/
 typedef struct liststring
 {
-	int number;
-	char *string;
-	struct liststring *next;
+int number;
+char *string;
+struct liststring *next;
 } list_str;
+
+/**
+ * struct passinform - pseudo arguments to pass to function
+ * @argument: argument
+ * @argvactor: array
+ * @path: string
+ * @argcounter: count of argument
+ * @line_counter: count of lines
+ * @error_num: exit() error code
+ * @line_flag: flag
+ * @filename: filename
+ * @environ2: copy of environ
+ * @environ: modified copy of environ
+ * @history: history node
+ * @aliasnode: alias node
+ * @environ_changed: if environ was changed
+ * @status: the return status
+ * @cmd_buffer: cmd_buf address pointer, on if chaining
+ * @cmd_buffer_type: CMD_type
+ * @readfiledis: the fd to read line input
+ * @histcount: history line number count
+*/
 
 typedef struct passinform
 {
-        char *argument;
-        char **argvactor;
-        char *path;
-        int argcounter;
-        unsigned int line_counter;
-        int error_num;
-        int line_flag;
-        char *filename;
-        list_str *environ2;
-        list_str *history;
-        list_str *aliasnode;
-        char **environ;
-        int environ_changed;
-        int status;
-        char **cmd_buffer;
-        int cmd_buffer_type;
-        int readfiledis;
-        int histcount;
+char *argument;
+char **argvactor;
+char *path;
+int argcounter;
+unsigned int line_counter;
+int error_num;
+int line_flag;
+char *filename;
+list_str *environ2;
+list_str *history;
+list_str *aliasnode;
+char **environ;
+int environ_changed;
+int status;
+char **cmd_buffer;
+int cmd_buffer_type;
+int readfiledis;
+int histcount;
 } i_t;
+
+/**
+ *struct exit_changD - a exit_changD string and related function
+ *@type: exit_changD command flag
+ *@func: function
+ */
 
 typedef struct exit_changD
 {
-	char *type;
-	int (*func)(i_t *);
+char *type;
+int (*func)(i_t *);
 } exit_changD_table;
 
 
@@ -112,7 +139,7 @@ char *_stringcat(char *, char *, int);
 char *_stringchar(char *, char);
 
 /* exit_changD.c */
-int _exitCmd(i_t *);  
+int _exitCmd(i_t *);
 int _changdir(i_t *);
 int _CDhelp(i_t *);
 
@@ -128,8 +155,8 @@ void remo_comm(char *);
 /* printString.c */
 void _inputputs(char *);
 int _inputputchar(char);
-int _putfdis(char , int );
-int _putsfdis(char *, int );
+int _putfdis(char, int);
+int _putsfdis(char *, int);
 
 /* environment_func.c */
 char *_envData(i_t *, const char *);
@@ -172,7 +199,7 @@ char *findthe_path(i_t *, char *, char *);
 size_t linkedlist_length(const list_str *);
 char **list_TOstr(list_str *);
 size_t print_linkedlist(const list_str *);
-list_str *node_startWith(list_str *, char *, char );
+list_str *node_startWith(list_str *, char *, char);
 ssize_t get_nodeindex(list_str *, list_str *);
 
 /**convert_number**/
