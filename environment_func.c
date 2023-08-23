@@ -7,10 +7,9 @@
  */
 int _environment(i_t *i)
 {
-size_t n;
-for (n = 0; i->environ2 && i->environ2[n]; n++)
-_puts(i->environ2[n]);
+say_stringlist(i->environ2);
 return (0);
+
 }
 
 /**
@@ -82,8 +81,8 @@ int environment_list(i_t *i)
 {
 list_str *nod_e = NULL;
 size_t n;
-for (n = 0; i->environ2 && i->environ2[n]; n++)
-addto_end(&nod_e, i->environ2[n], 0);
+for (n = 0; environ[n]; n++)
+addto_end(&nod_e, environ[n], 0);
 i->environ2 = nod_e;
 return (0);
 }
