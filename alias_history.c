@@ -80,7 +80,7 @@ pio = _stringchar(nod_e->string, '=');
 for (aa = nod_e->string; aa <= pio; aa++)
 _putchar(*aa);
 _putchar('=');
-_puts(pio + 1);
+_puts(pio);
 _puts("'\n");
 return (0);
 }
