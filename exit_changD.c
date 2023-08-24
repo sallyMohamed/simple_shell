@@ -15,7 +15,7 @@ int _exitCmd(i_t *i)
 		if (e_check == -1)
 		{
 			i->status = 2;
-			say_error(i, "Wrong  number: ");
+			say_error(i, "Illegal number: ");
 			_inputputs(i->argvactor[1]);
 			_inputputchar('\n');
 			return (1);
@@ -39,7 +39,7 @@ int _changdir(i_t *i)
 
 	x = getcwd(buffer_size, 1024);
 	if (!x)
-		_puts(" >> Error <<\n");
+		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!i->argvactor[1])
 	{
 		directory = _envData(i, "HOME=");
